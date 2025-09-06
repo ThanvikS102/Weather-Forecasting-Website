@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1>Weather Forecasting Application</h1>
+            <p>Search for a city to view current conditions and a multi-day forecast.</p>
+        </header>
+
+        <div class="search-card">
+            <h2>Search</h2>
+            <!-- Updated description to indicate API key is now required -->
+            <p>Enter a city name and your OpenWeatherMap API key to get weather data.</p>
+            <form id="search-form" class="search-form">
+                <div class="form-group">
+                    <label for="city-input">City Name</label>
+                    <input type="text" id="city-input" placeholder="Enter city name" value="London" required>
+                </div>
+                <div class="form-group">
+                    <!-- Made API key required and updated label/placeholder -->
+                    <label for="api-key-input">API Key (Required)</label>
+                    <input type="text" id="api-key-input" placeholder="Get your free API key from openweathermap.org" required>
+                </div>
+                <button type="submit" id="search-btn">Search Weather</button>
+            </form>
+        </div>
+
+        <div class="weather-card">
+            <div class="weather-header">
+                <h2 id="weather-title">Current Weather</h2>
+                <p>Real-time conditions via OpenWeatherMap</p>
+            </div>
+            <div class="weather-content">
+                <div id="loading" class="loading hidden">
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                </div>
+                <div id="weather-data" class="weather-data hidden">
+                    <div class="weather-main">
+                        <img id="weather-icon" src="generic-weather-icon.png" alt="Weather icon" class="weather-icon">
+                        <div class="weather-info">
+                            <p id="weather-description" class="weather-description">—</p>
+                            <p id="weather-source" class="weather-source">Data source: —</p>
+                        </div>
+                    </div>
+                    <div class="weather-stats">
+                        <div class="stat">
+                            <p class="stat-label">Temperature</p>
+                            <p id="temperature" class="stat-value">—</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Humidity</p>
+                            <p id="humidity" class="stat-value">—</p>
+                        </div>
+                        <div class="stat">
+                            <p class="stat-label">Updated</p>
+                            <p id="updated-time" class="stat-value">—</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="no-data" class="no-data">
+                    <p>Enter a city and press Search to view weather.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-header">
+                <h2>Forecast</h2>
+                <p>Temperature trend visualization</p>
+            </div>
+            <div class="chart-content">
+                <div id="chart-loading" class="chart-skeleton hidden"></div>
+                <canvas id="forecast-chart" class="hidden"></canvas>
+                <div id="no-chart-data" class="no-data">
+                    <p>No data yet. Search for a city to see forecast trends.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message hidden">
+            <p id="error-text"></p>
+            <button id="retry-btn" class="retry-btn">Retry</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
