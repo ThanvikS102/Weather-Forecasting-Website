@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h2>WEATHER DASHBOARD</h2>
+            <form id="weather-form">
+                <input type="text" id="city-input" placeholder="Enter city name..." required>
+                <button type="submit">Search</button>
+            </form>
+        </header>
+
+        <main id="weather-display" class="hidden">
+            <section class="current-weather">
+                <div class="location-details">
+                    <h1 id="city-name">Bengaluru, IN</h1>
+                    <p id="current-date">Wednesday, August 6, 2025</p>
+                </div>
+                <div class="temperature-details">
+                    <img id="weather-icon" src="https://openweathermap.org/img/wn/04d@2x.png" alt="Weather Icon">
+                    <div>
+                        <span id="temperature">27</span>°C
+                        <p id="weather-description">Broken Clouds</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="secondary-details">
+                <div class="detail-card">
+                    <p class="label">Feels Like</p>
+                    <p class="value" id="feels-like">27°C</p>
+                </div>
+                <div class="detail-card">
+                    <p class="label">Humidity</p>
+                    <p class="value" id="humidity">64%</p>
+                </div>
+                <div class="detail-card">
+                    <p class="label">Sunrise</p>
+                    <p class="value" id="sunrise">06:06 AM</p>
+                </div>
+                <div class="detail-card">
+                    <p class="label">Sunset</p>
+                    <p class="value" id="sunset">06:44 PM</p>
+                </div>
+                <div class="detail-card">
+                    <p class="label">Wind</p>
+                    <p class="value" id="wind">5.14 m/s</p>
+                </div>
+                <div class="detail-card">
+                    <p class="label">Pressure</p>
+                    <p class="value" id="pressure">1006 hPa</p>
+                </div>
+            </section>
+        </main>
+        
+        <div id="message-display">
+            <p id="error-message">Enter a city to get the weather forecast.</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
